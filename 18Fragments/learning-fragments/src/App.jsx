@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <h1>Healthy Foods</h1>
+      <h1 className="kg-span">Healthy Foods</h1>
       <Error itemsnew={foodItems}></Error>
       <Fooditem itemsnew={foodItems}></Fooditem>
     </>
