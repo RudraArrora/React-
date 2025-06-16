@@ -1,0 +1,11 @@
+
+input{
+    width: 100%;
+}
+.item-container{
+    text-align: left;
+}
+.myRow{
+    margin: 10px;
+    margin-top: 20px;
+}
