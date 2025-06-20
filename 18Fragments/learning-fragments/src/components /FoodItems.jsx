@@ -3,7 +3,7 @@ import Item from "./listitem";
 
 function Fooditem(props) {
 
-  let[activeState,setItems] = useState([]);
+  let[activeState,setItems] = useState([" "]);
 
   let onBuy = (item , event ) => {
     let newItems = [...activeState , item];
