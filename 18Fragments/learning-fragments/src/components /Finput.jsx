@@ -1,13 +1,13 @@
 import styles from "./Finput.module.css"
 
-const Finput = ({ handleonChange }) => {
+const Finput = ({ handleKeyDown }) => {
   return (
     <>
       <input
         type="text"
         placeholder="Enter Food Item Here "
         className={styles.fooditem}
-        onChange={handleonChange}
+        onKeyDown={handleKeyDown}
       ></input>
     </>
   );
