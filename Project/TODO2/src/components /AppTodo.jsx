@@ -1,34 +1,30 @@
-import { useState } from "react";
+import {  useRef } from "react";
 import { RiApps2AddFill } from "react-icons/ri";
 
 function AppTodo({ onAdding }) {
-  let [initName, setName] = useState();
-  let [initDate, setDate] = useState();
-  let onEnteringName = (event) => {
-    setName(event.target.value);
-  };
-  let onEnteringDate = (event) => {
-    setDate(event.target.value);
-  };
+  const todoElement = useRef();
+  const dueDateElement = useRef();
+
   let passTheValue = (event) => {
     event.preventDefault();
+    const initName = todoElement.current.value;
+    const initDate = dueDateElement.current.value;
+    todoElement.current.value = 0;
+    dueDateElement.current.value=0;
     onAdding(initName, initDate, event);
-    setName(" ");
-    setDate(" ");
   };
   return (
     <div class="container item-container">
-      <form class="row myRow" 
-      onSubmit={passTheValue}>
+      <form class="row myRow" onSubmit={passTheValue}>
         <div class="col-6 col-md-4">
           <input
+            ref={todoElement}
             type="text"
             placeholder="Enter The ToDo Work"
-            onChange={onEnteringName}
           ></input>
         </div>
         <div class="col-6 col-md-4">
-          <input type="date" onChange={onEnteringDate}></input>
+          <input type="date" ref={dueDateElement}></input>
         </div>
         <div class="col-4 col-md-2">
           <button class="btn btn-success">
