@@ -1,4 +1,6 @@
-function TODO({todoname, tododate,seeting}) {
+import { MdDelete } from "react-icons/md";
+
+function TODO({ todoname, tododate, seeting }) {
   return (
     <div className="container ">
       <div class="row myRow">
@@ -10,7 +12,7 @@ function TODO({todoname, tododate,seeting}) {
             class="btn btn-danger"
             onClick={() => seeting(todoname)}
           >
-            Danger
+            <MdDelete />
           </button>
         </div>
       </div>
