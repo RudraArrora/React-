@@ -1,7 +1,11 @@
 import {  useRef } from "react";
 import { RiApps2AddFill } from "react-icons/ri";
+import { useContext } from "react";
+import { Contxt } from "../store/contextTodo";
+function AppTodo() {
+  const contextObj = useContext(Contxt);
+  const onAdding = contextObj.onAdding;
 
-function AppTodo({ onAdding }) {
   const todoElement = useRef();
   const dueDateElement = useRef();
 
