@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { Contxt } from "../store/contextTodo";
+import { useContext, useState } from "react";
 import TODO from "./TODO";
 
 
-function All({ todoItems ,seeting}) {
+function All({ seeting}) {
+const contextObj   = useContext(Contxt);
+const todoItems = contextObj.todoItem;
 
-
-  console.log("00000",todoItems)
+  // console.log("00000",todoItems)
   return (
     <>
       <div className="item-container">
