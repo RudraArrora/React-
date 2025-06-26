@@ -16,8 +16,9 @@ const todoReducer = (currentTodo, action) => {
       },
     ];
   } else if (action.type === "Delete_Item") {
-        const newItem = currentTodo.filter((item) => item.name !== action.payload.itemName);
-     
+     newItem = currentTodo.filter(
+      (item) => item.name !== action.payload.itemName
+    );
   }
   return newItem;
 };
@@ -37,7 +38,6 @@ function App() {
       duedate: "10/02/2008",
     },
   ];
-  // let [todoItem, setState] = useState(inittodoItem);
 
   const [todoItem, dispatchToDo] = useReducer(todoReducer, []);
   let onAdding = (itemName, itemDueDate, event) => {
@@ -49,24 +49,16 @@ function App() {
       },
     };
     dispatchToDo(newItemReducer);
-    //   const  newItem =  [...todoItem,{
-    //     name:itemName,
-    //     duedate:itemDueDate
-    //   }
-    // ];
-    //   setState(newItem);
   };
 
   let seeting = (toname) => {
-
-
-        const DeleteItemReducer = {
-          type: "Delete_Item",
-          payload: {
-            itemName:toname,
-          },
-        };
-        dispatchToDo(DeleteItemReducer);
+    const DeleteItemReducer = {
+      type: "Delete_Item",
+      payload: {
+        itemName: toname,
+      },
+    };
+    dispatchToDo(DeleteItemReducer);
   };
 
   return (
