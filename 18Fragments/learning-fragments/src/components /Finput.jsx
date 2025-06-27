@@ -1,4 +1,4 @@
-import styles from "./Finput.module.css"
+import styles from "./Finput.module.css";
 
 const Finput = ({ handleKeyDown }) => {
   return (
