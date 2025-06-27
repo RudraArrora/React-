@@ -1,4 +1,4 @@
-function AppTodo(){
+function AppTodo() {
   return (
     <div class="container item-container">
       <div class="row myRow">
@@ -15,6 +15,6 @@ function AppTodo(){
         </div>
       </div>
     </div>
-  ); 
+  );
 }
 export default AppTodo;

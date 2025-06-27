@@ -7,17 +7,15 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  let [foodItems, Setfooditem] = useState(["Dal"
-  , "Green Vegetables"
-  , "Roti"]);
-      const handleKeyDown = (event) => {
-        if (event.key==='Enter'){
-          let newfood = event.target.value;
-          let newItems =[...foodItems,newfood];
-          Setfooditem(newItems);
-          console.log("************",newfood,"************")
-        }
-      };
+  let [foodItems, Setfooditem] = useState(["Dal", "Green Vegetables", "Roti"]);
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      let newfood = event.target.value;
+      let newItems = [...foodItems, newfood];
+      Setfooditem(newItems);
+      console.log("************", newfood, "************");
+    }
+  };
 
   return (
     <>

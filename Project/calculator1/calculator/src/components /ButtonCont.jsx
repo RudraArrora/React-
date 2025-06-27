@@ -23,7 +23,10 @@ const ButtonCont = ({ onButtonPress }) => {
     <>
       <div id="buttons" className={styles.displayButtons}>
         {buttonName.map((item) => (
-          <button className={styles.displaybutton} onClick={()=>onButtonPress(item)}>
+          <button
+            className={styles.displaybutton}
+            onClick={() => onButtonPress(item)}
+          >
             {item}
           </button>
         ))}

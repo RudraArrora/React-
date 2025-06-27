@@ -1,4 +1,4 @@
-import styles  from "./Display.module.css";
+import styles from "./Display.module.css";
 const Display = ({ activeState }) => {
   return (
     <>
@@ -7,7 +7,8 @@ const Display = ({ activeState }) => {
         type="text"
         className={styles.display}
         value={activeState}
-     readOnly ></input>
+        readOnly
+      ></input>
     </>
   );
 };
