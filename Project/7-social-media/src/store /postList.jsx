@@ -26,6 +26,7 @@ const DEFAULT_POST_LIST = [
     body: "Hi Friends , I am going to mumbai for vacation",
     reactions: 2,
     userId: "user-9",
+    tags: ["vacation", "Mumbai", "Enjyoing"],
   },
   {
     id: "2",
@@ -33,6 +34,7 @@ const DEFAULT_POST_LIST = [
     body: "Hi Friends Raundy Orton ",
     reactions: 15,
     userId: "user-1",
+    tags: ["vacation", "Mumbai", "Enjyoing"],
   },
 ];
 export default PostListProvider;
