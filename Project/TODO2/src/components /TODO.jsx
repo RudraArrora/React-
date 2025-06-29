@@ -2,8 +2,8 @@ import { MdDelete } from "react-icons/md";
 import { useContext } from "react";
 import { Contxt } from "../store/contextTodo";
 function TODO({ todoname, tododate }) {
-    const contextObj = useContext(Contxt);
-    const seeting = contextObj.seeting;
+  const contextObj = useContext(Contxt);
+  const seeting = contextObj.seeting;
   return (
     <div className="container ">
       <div class="row myRow">

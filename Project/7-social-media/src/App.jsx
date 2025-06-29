@@ -1,4 +1,3 @@
-import "./App.css";
 import Header from "./components/header";
 import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
@@ -7,7 +6,7 @@ import PostList from "./components/PostList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import PostListProvider from "./store /postList";
-
+import "./App.css";
 function App() {
   const [selectedTab, setSelectedTab] = useState("Create Post");
 

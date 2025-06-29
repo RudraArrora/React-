@@ -8,8 +8,14 @@
     min-height: 80%;
 }
 .post-card {
-margin : 20px 50px
+margin : 20px 50px;
+min-width: 30rem;
 }
 .hash {
     margin: 0px 3px ;
+}
+.create-post{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10%;
 }
