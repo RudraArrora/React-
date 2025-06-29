@@ -11,4 +11,4 @@ const {postList} = useContext(PostListData)
       </>
     );
 }
-export default PostList
+export default PostList;
