@@ -1,29 +1,36 @@
-import { useContext, useState } from "react";
-import Post from "./Post"
+import { useContext, useEffect, useState } from "react";
+import Post from "./Post";
 import WelcomeM from "./WelcomeM";
 import { PostList as PostListData } from "../store /postList";
- const PostList = () =>{
-const {postList , addPosts} = useContext(PostListData)
-const [dataFetched,setDataFetched] = useState(false);
+import LoadingSpinner from "./LoadingSpinner";
+const PostList = () => {
+  const { postList, addPosts } = useContext(PostListData);
+  const [fetching, setFetching ]= useState(false);
+const constroller = new AbortController;
+const signal =constroller.signal;
+  useEffect(() => {
+    setFetching(true);
+    fetch("https://dummyjson.com/posts",{signal})
+      .then((res) => res.json())
+      .then((data) => {
+        addPosts(data.posts);
+        setFetching(false);
 
-if (!dataFetched){
-  fetch("https://dummyjson.com/posts")
-    .then((res) => res.json())
-    .then((data) => {
-      addPosts(data.posts);
-    });
-    setDataFetched(true);
+      });
+return () =>{
+  console.log("Clean Up ")
+  // constroller.abort();
 }
+  }, []);
 
-    return (
-      <>
-      {
-        postList.length === 0 && <WelcomeM />
-      }
-        {postList.map((post) => (
-          <Post key={post.id} post={post} ></Post>
-        ))}
-      </>
-    );
-}
+  return (
+    <>
+    {fetching &&<LoadingSpinner></LoadingSpinner> }
+      {!fetching && postList.length === 0 && <WelcomeM />}
+      {!fetching&& postList.map((post) => (
+        <Post key={post.id} post={post}></Post>
+      ))}
+    </>
+  );
+};
 export default PostList;
