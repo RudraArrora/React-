@@ -1,7 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Sidebar = ({ selectedTab, setSelectedTab }) => {
-
+const Sidebar = () => {
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
@@ -19,35 +19,17 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
       </a>
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
-        <li
-          className="nav-item"
-          onClick={() => {
-
-            setSelectedTab("Home");
-          }}
-        >
-          <a
-            href="#"
-            class={`nav-link  ${selectedTab === "Home" && "active"}`}
-            aria-current="page"
-          >
+        <li className="nav-item">
+          <Link to="/" class={"nav-link "} aria-current="page">
             <i className="bi bi-house pe-none me-2"></i>
             Home
-          </a>
+          </Link>
         </li>
-        <li
-          onClick={() => {
-            setSelectedTab("Create Post");
-          }}
-        >
-          <a
-            href="#"
-            class={`nav-link ${selectedTab === "Create Post" && "active"}`}
-            aria-current="page"
-          >
+        <li>
+          <Link to="/createPost" class={"nav-link"} aria-current="page">
             <i className="bi bi-speedometer2 pe-none me-2"></i>
             Create Post
-          </a>
+          </Link>
         </li>
       </ul>
       <hr />

@@ -1,7 +1,9 @@
-import { createContext, useReducer } from "react";
+import { useCallback } from "react";
+import { createContext, useReducer,useState,useEffect } from "react";
 export const PostList = createContext({
   postList: [],
   addPost: () => {},
+  fetching : false,
   deletePost: () => {},
   addPosts: () => {},
 });
@@ -22,21 +24,32 @@ const postReducer = (currentPostList, action) => {
 
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPost] = useReducer(postReducer, []);
-  const addPost = (userId, postTittle, postBody, reactions, tags) => {
+    const [fetching, setFetching] = useState(false);
+    const constroller = new AbortController();
+    const signal = constroller.signal;
+    useEffect(() => {
+      setFetching(true);
+      fetch("https://dummyjson.com/posts", { signal })
+        .then((res) => res.json())
+        .then((data) => {
+          addPosts(data.posts);
+          setFetching(false);
+        });
+      return () => {
+        console.log("Clean Up ");
+        // constroller.abort();
+      };
+    }, []);
+
+  const addPost = (post) => {
 
     dispatchPost({
       type: "Add Post",
-      payload: {
-        id: Date.now(),
-        title: postTittle,
-        body: postBody,
-        reactions: reactions,
-        userId: userId,
-        tags: tags,
-      },
+      payload: post
     });
   };
-  const addPosts = (posts) => {
+  const addPosts = useCallback(
+    (posts) => {
    console.log(posts);
     dispatchPost({
       type: "AddPosts",
@@ -44,7 +57,10 @@ const PostListProvider = ({ children }) => {
         posts,
       },
     });
-  };
+  },
+  [dispatchPost]
+  ) 
+  
   const deletePost = (postId) => {
     dispatchPost({
       type: "Delete_Post",
